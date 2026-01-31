@@ -27,6 +27,11 @@ const addTodohandler = () =>{
     setTodo('')
 }
 
+const deleteHandler = (id) => {
+    const newList =list.filter((item)=>item.id !==id);
+    setList(newList);
+}
+
   return (
     <div className="card todo-section">
         <h3>My Tasks</h3>
@@ -47,6 +52,7 @@ const addTodohandler = () =>{
                 return ( 
                 <li key={element.id}>
                     <span>{element.deskripsi}</span>
+                    <button className='btn-delete' onClick={()=>deleteHandler(element.id)}>Delete</button>
                 </li>)
             })}
         </ul>
